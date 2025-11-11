@@ -694,6 +694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe51b409513253d4da8f8af5966094e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainManager
+  TeamColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &816542919
 Transform:
   m_ObjectHideFlags: 0
@@ -1410,7 +1411,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1960852281}
         m_TargetAssemblyTypeName: MenuUIHandler, Assembly-CSharp
-        m_MethodName: LoadColorCliked
+        m_MethodName: LoadColorClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

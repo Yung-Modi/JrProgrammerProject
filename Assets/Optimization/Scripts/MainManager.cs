@@ -3,7 +3,7 @@ using UnityEngine;
 [System.Serializable]
 class SaveData
 {
-    public Color Teamcolor;
+    public Color TeamColor;
 }
 
 public class MainManager : MonoBehaviour
@@ -12,7 +12,7 @@ public class MainManager : MonoBehaviour
 
     public static MainManager Instance;
 
-    public Color Teamcolor; 
+    public Color TeamColor; 
 
     private void Awake()
     {
@@ -26,25 +26,20 @@ public class MainManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        LoadData();
-    }
-
-    public void NewColorSelected(Color color)
-    {
-        MainManager.Instance.Teamcolor = color;
+        LoadColor();
     }
 
     public void SaveColor()
     {
         SaveData data = new SaveData();
-        data.Teamcolor = Teamcolor;
+        data.TeamColor = TeamColor;
 
         string json = JsonUtility.ToJson(data);
 
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
     }
 
-    public void LoadData()
+    public void LoadColor()
     {
         string path = Application.persistentDataPath + "/savefile.json";
         if (File.Exists(path))
@@ -52,7 +47,7 @@ public class MainManager : MonoBehaviour
             string json = File.ReadAllText(path);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-            Teamcolor = data.Teamcolor;
+            TeamColor = data.TeamColor;
         }
     }
 }
